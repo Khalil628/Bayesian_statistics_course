@@ -134,12 +134,12 @@ cat(file = "model_lmm.txt","
 
     # Priors
     mu ~ dnorm(0, 0.001) # Intercept
-    for(i in 1:M){
+    for(i in 1:...){
       site[i] ~ ... # Random site effects
       }
     tau.site <- pow(sd.site, -2)
     sd.site ~ ...
-    for(t in 1:T){
+    for(t in 1:...){
       year[t] ~ ... # Random year effects
       }
     tau.year <- pow(sd.year, -2)
@@ -148,15 +148,15 @@ cat(file = "model_lmm.txt","
     sd ~ ...
 
     # Likelihood
-    for (i in 1:M){
-      for(t in 1:T){
+    for (i in 1:...){
+      for(t in 1:...){
         LC[i,t] ~ ... # some distribution
         lambda[i,t] <- mu + ... # some effects 
         resid[i,t]<-LC[i,t]-lambda[i,t]
         }
       }
     # Derived quantities
-    for(t in 1:T){
+    for(t in 1:..){
       popindex[t] <- sum(lambda[,t])
       }
     }
