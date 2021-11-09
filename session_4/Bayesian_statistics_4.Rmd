@@ -68,12 +68,12 @@ abline(h = pop.grand.mean)
 
 $J=10$ Groups. Notations
 
-\[ Y_{ij} = \alpha_i + \epsilon_{ij}, \epsilon_{ij} \sim \mathcal{N}(0,\sigma^2)\]
+\[ Y_{ij} = \alpha_j + \epsilon_{ij}, \epsilon_{ij} \sim \mathcal{N}(0,\sigma^2)\]
 Practical if $i=1,...,I$ is the same number of individuals per group. $n=I \times J$. 
 
 \onslide<2->or again
-\[ Y_{ij} \sim \mathcal{N}(\mu_{ij},\sigma^2), \mu_{ij} = \alpha_i \]
-By that we mean that $\mathbb{E}(Y_{ij}) = \alpha_i$. 
+\[ Y_{ij} \sim \mathcal{N}(\mu_{ij},\sigma^2), \mu_{ij} = \alpha_j \]
+By that we mean that $\mathbb{E}(Y_{ij}) = \alpha_j$. 
 
 \onslide<3-> Note: if you have an overall mean $\mu$ you need to remove a group
 
@@ -165,7 +165,7 @@ i.i.d. observations. And then?
 
 \onslide<3-> We estimate the variance of the random effects
 \[ \alpha_{j} \sim \mathcal{N}(\mu_{\alpha},\sigma_{\alpha}^2) \]
-(we have to specify a mean too)
+for $j=1,...,J$ (we have to specify a mean $\mu_{\alpha}$ too, we can set it to zero if there is an overall mean $\mu$ though)
 
 ## Random effect model in a Bayesian framework {.allowframebreaks} 
 
