@@ -1,0 +1,53 @@
+
+    model {
+
+    ########### Priors ################
+    
+    # Prior for global intercept
+    mu ~ dnorm(0, 0.001) # Intercept
+    
+    # Priors for site effects
+    for(i in 1:M){
+      site[i] ~ dnorm(0, tau.site) # Random site effects
+      }
+    tau.site <- pow(sd.site, -2)
+    sd.site ~ dunif(0, 5)
+    
+    # Priors for year effects
+    for(t in 1:T){
+      year[t] ~ dnorm(0, tau.year) # Random year effects
+      }
+    tau.year <- pow(sd.year, -2)
+    sd.year ~ dunif(0, 3)
+    
+    # Priors for residuals
+    tau <- pow(sd, -2)
+    sd ~ dunif(0, 3)
+    
+    # Prior on the slope of the trend
+    gamma ~ dnorm(0,1)
+    
+    # Priors for elevation, forest, date etc. 
+    for (u in 1:7){
+      theta[u] ~ dnorm(0,1) #dnorm(0,0.01)
+    }
+
+
+    ############ Likelihood ###########
+
+    for (i in 1:M){
+      for(t in 1:T){
+        LC[i,t] ~ dnorm(lambda[i,t],tau)
+        lambda[i,t] <- mu + site[i] + year[t] + gamma * yr[t]
+        + theta[1]*elev[i] + theta[2] * pow(elev[i],2)
+        + theta[3]*forest[i] + theta[4] * date[i,t] + theta[5] * pow(date[i,t],2)
+        + theta[6]*dur[i,t] + theta[7]*twosurveys[i]
+        }
+      }
+
+    ############  Derived quantities ############ 
+    for (t in 1:T){
+      popindex[t] <- sum(lambda[,t])
+      }
+    }
+    
