@@ -1,0 +1,40 @@
+
+    model {
+    
+    # Priors
+    mu ~ dnorm(0, 0.001) # Intercept
+    
+    for(i in 1:M){
+      site[i] ~ dnorm(0, tau.site) # Priors for site effects
+    }
+    sd.site ~ dunif(0,10) 
+    tau.site<-pow(sd.site,-2)
+    sd2.site<-pow(sd.site,2)
+    
+    #year[1] <- 0 # Constraint on year effects -> check if important. 
+    for (t in 1:T){
+      year[t] ~ dnorm(0, tau.year) # Priors for year effects 
+    }
+    sd.year ~ dunif(0,10)
+    tau.year<-pow(sd.year,-2)
+    sd2.year<-pow(sd.year,2)
+    
+    sd ~ dunif(0,10)
+    tau<-pow(sd,-2)
+    sd2<-pow(sd,2)
+    
+    # Likelihood
+    for (i in 1:M){
+      for(t in 1:T){
+        C[i,t] ~ dpois(lambda[i,t])
+        eps[i,t] ~ dnorm(0,tau)
+        log(lambda[i,t]) <- mu + site[i] + year[t] + eps[i,t]
+      }
+    }
+    
+    # Derived quantities
+    for(t in 1:T){
+      popindex[t] <- sum(lambda[,t])
+    }
+    }
+    
