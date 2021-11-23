@@ -171,7 +171,7 @@ print(out, dig = 3)     # Bayesian analysis
 
 [Posterior predictive distribution](https://en.wikipedia.org/wiki/Posterior_predictive_distribution)
 
-\[ p(y^{\text{rep}}|y) = \int \underbrace{p(y^{\text{rep}}|y,\theta)}_{\text{new model draws} \times} \underbrace{p(\theta|y))}_{\text{posterior}} d\theta \]
+\[ p(y^{\text{rep}}|y) = \int \underbrace{p(y^{\text{rep}}|y,\theta)}_{\text{new model draws} \times} \underbrace{p(\theta|y)}_{\text{posterior}} d\theta \]
 
 (Negative-Binomial distributed in Poisson ANOVA or regression).
 
@@ -220,13 +220,15 @@ and
 
 is equivalent to $Y_i \sim \text{NB}(r,p)$ with $\alpha =r$ and $\beta = \frac{p}{1-p}$. [Proof](https://gregorygundersen.com/blog/2019/09/16/poisson-gamma-nb/).
 
-$\mathbb{E}(Y_i) = \mu = \frac{\alpha}{\beta} = \frac{r(1-p)}{p}$ and we can show that $\mathbb{V}(Y_i) = \mu + \mu^2/r$. 
+Facts about the NB distribution: $\mathbb{E}(Y_i) = \mu = \frac{\alpha}{\beta} = \frac{r(1-p)}{p}$ and we can show that $\mathbb{V}(Y_i) = \mu + \mu^2/r$. 
 
 ## Poisson--Log-Normal
 
-$Y_i | \epsilon_i \sim \mathcal{P}(a + b x_i + \epsilon_i)$ with $\epsilon_i \sim \mathcal{N}(0,\sigma^2)$ for regression
+$Y_i | \epsilon_i \sim \mathcal{P}(\exp(a + b x_i + \epsilon_i))$ with $\epsilon_i \sim \mathcal{N}(0,\sigma^2)$ for regression
 
-$Y_i | \epsilon_i \sim \mathcal{P}(\alpha_{j[i]} + \epsilon_i)$ with $\epsilon_i \sim \mathcal{N}(0,\sigma^2)$ for ANOVA
+$Y_i | \epsilon_i \sim \mathcal{P}(\exp(\alpha_{j[i]} + \epsilon_i))$ with $\epsilon_i \sim \mathcal{N}(0,\sigma^2)$ for ANOVA
+
+Denoting $m_i = \exp(a + b x_i + \sigma^2/2)$ the mean of the log-normal distribution, [we can show](https://stats.stackexchange.com/questions/427341/how-to-find-an-expression-of-the-variance-of-a-poisson-lognormal-distribution) that $\mathbb{V}(Y_i) = m_i + (e^{\sigma^2}-1) m_i^2$. 
 
 ## Applying to horsekick data { .allowframebreaks }
 
@@ -374,7 +376,7 @@ denplot(out3,parms=c("sigma2_alpha","sigma2"))
 ## Offsets: a sequencing example
 
 We have 5 samples of 1245, 1145, 987, 1342, and 1012 sequence reads total.
-Each samples contains DNA sequence counts for 15 species. The total number of counts are determined by the sequencing depth -- not how much DNA we have.
+Each sample contains DNA sequence counts for 15 species. The total number of counts are determined by the sequencing depth -- not how much DNA we have.
 
 - The data reads for the first sample (sorted by size):
 
