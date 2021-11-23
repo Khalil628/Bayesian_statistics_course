@@ -389,17 +389,17 @@ Each sample contains DNA sequence counts for 15 species. The total number of cou
 ## Offsets: models
 
 We code log(total number of reads as an offset) = $o_i$. What does that mean? 
-
-\[ Y_{i,j} = \mathcal{P}(\exp(o_i + \alpha_{j[i]})) \]
+$i$ = sample index, $j$ = species index
+\[ Y_{i,j} = \mathcal{P}(\exp(o_i + \alpha_{j})) \]
 
 \onslide<2->
 $o_i$ is not estimated. It is plugged-in. What does it mean?
 
-Let's say $N_j = \sum_i Y_{i,j}$. We have then
+Let's say $N_i = \sum_j Y_{i,j}$. We have then
 
-\[ Y_{i,j} = \mathcal{P}(N_i\exp(\alpha_{j[i]})) \]
+\[ Y_{i,j} = \mathcal{P}(N_i\exp(\alpha_{j})) \]
 
-Thus we model $\frac{Y_{i,j}}{\sum_i Y_{i,j}}$ the fraction of species $i$ in sample $j$.
+Thus we model $\frac{Y_{i,j}}{\sum_j Y_{i,j}}$ the fraction of species $j$ in sample $i$.
 
 ## Goodness of fit -- more info
 \small
