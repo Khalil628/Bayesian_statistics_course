@@ -1,0 +1,16 @@
+
+model {
+
+  alpha ~ dnorm(0, 0.01)    # prior for the mean on logit scale
+  beta_P ~ dnorm(0, tau_beta)   # size of pirating eagle (S rather than L) 
+  beta_A ~ dnorm(0, tau_beta)  # age of pirating eagle (I rather than A)
+  beta_V ~ dnorm(0, tau_beta)   # size of victim (S rather than L) 
+  sigma_beta ~ dexp(1)
+  tau_beta <-pow(sigma_beta,-2)
+
+  for (i in 1:N){
+  y[i] ~ dbin(p[i],z[i])      ## likelihood
+   logit(p[i]) <- alpha + beta_P*P[i] + beta_V*V[i] +beta_A*A[i]
+  }
+  
+}
