@@ -37,6 +37,8 @@ plot(timeindex,gompertz_growth)
 data = list(T=100,y=gompertz_growth)
 ```
 
+Objective: Fit in JAGS the Gompertz model corresponding to this simulated dataset. 
+
 ```{r fitting-the-model}
 
 ```
