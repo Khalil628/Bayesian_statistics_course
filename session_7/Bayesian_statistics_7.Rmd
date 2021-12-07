@@ -2,7 +2,7 @@
 title: "GLM(M)s for binary data"
 subtitle: "Bayesian statistics 7 -- generalized linear models for binary data"
 author: "Frédéric Barraquand (CNRS, IMB)"
-date: "22/11/2021"
+date: "01/12/2021"
 output: 
   beamer_presentation:
     theme: "Boadilla"
