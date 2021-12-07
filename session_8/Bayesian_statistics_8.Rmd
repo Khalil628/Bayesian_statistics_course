@@ -216,3 +216,9 @@ ggs_traceplot(S)
 ggs_pairs(S)
 ```
 
+## How to interpret correlations in the posteriors
+
+>- Makes some parameters difficult to interpret independently
+>- Here $r$ is correlated to $\alpha$ but not really to $K$ despite the fact that the formula $K$ includes $r$ in our JAGS code
+>- To maintain a nice curve that goes through the point cloud, $r$ must be correlated with $\alpha$. 
+>- We'll see another example of this in the practical
