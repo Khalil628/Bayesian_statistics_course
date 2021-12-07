@@ -144,7 +144,7 @@ plogis(out2$mean$alpha+out2$mean$beta_A)/plogis(out2$mean$alpha)
 
 Thus the probability gets down from approximately 80% to 56%, a 70% decrease. Another way to look at this is the use of the [odds ratio](https://en.wikipedia.org/wiki/Odds_ratio) which is $\exp(\beta_A)$ for immaturity, here 33%. The odds are the ratio of probability for vs against the event occurring (here, piracy). An odds ratio is a ratio of those ratios; here it says that the odds of successful piracy are lower by one third when the attacker is immature.  
 
-See [Table 2 of the original article by Knight and Skagen (1988) for more probabilities of success corresponding to the different combinations](https://www.jstor.org/stable/1941273)
+See [Table 1 of the original article by Knight and Skagen (1988) for more probabilities of success corresponding to the different combinations](https://www.jstor.org/stable/1941273)
 
 A little bit of ecological or evolutionary thinking based on these numbers:
 
