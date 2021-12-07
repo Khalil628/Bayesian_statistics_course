@@ -32,7 +32,7 @@ a = 15
 b= 1.5
 c = 0.15
 timeindex=1:100
-gompertz_growth = a*exp(-exp(b-c*t)) + rnorm(100,0,1)
+gompertz_growth = a*exp(-exp(b-c*timeindex)) + rnorm(100,0,1)
 plot(timeindex,gompertz_growth)
 data = list(T=100,y=gompertz_growth)
 ```
