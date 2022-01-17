@@ -14,5 +14,5 @@ The course runs for 10 sessions of 3 hours each, roughly half-lectures half-prac
 6. [Generalized linear models for counts](https://github.com/fbarraquand/Bayesian_statistics_course/blob/master/session_6/Bayesian_statistics_6.pdf). TD6 GLM(Ms) Poisson LN (fitting diagnostics, posterior predictive checks). 
 7. [Binomial/Bernoulli GLM(Ms)](https://github.com/fbarraquand/Bayesian_statistics_course/blob/master/session_7/Bayesian_statistics_7.pdf) (importance of priors in original and transformed scale). TD7 Binomial ANOVA. 
 8. [Nonlinear models (organism growth, population growth)](https://github.com/fbarraquand/Bayesian_statistics_course/blob/master/session_8/Bayesian_statistics_8.pdf). TD8 Gompertz organism growth. 
-9. Latent variable models (e.g. occupancy models (0/1), capture - recapture). TD9 occupancy model. 
-10. Model selection in a Bayesian setting. 
+9. [Latent variable models](https://github.com/fbarraquand/Bayesian_statistics_course/blob/master/session_9/Bayesian_statistics_9.pdf). TD9 occupancy model (0/1 data with added observation process). 
+10. [Model selection in a Bayesian setting](https://github.com/fbarraquand/Bayesian_statistics_course/blob/master/session_10/Bayesian_statistics_10.pdf). TD10 Linear and nonlinear model comparison.  
