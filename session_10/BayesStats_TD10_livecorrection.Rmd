@@ -62,7 +62,10 @@ datareg = data.frame(y,x1,x2,x3,x4)
 BF  = regressionBF(y ~ .,data=datareg,whichModels = 'bottom') ## Just one covariate added w.r.t. constant
 BF
 ## Comparison x1 vs x1+x2 to add. 
-
+marginaldens_x1only  = lmBF(y ~ x1,data=datareg) ## Just one covariate added w.r.t. constant
+marginaldens_x1andx2  = lmBF(y ~ x1+x2,data=datareg)
+BF = marginaldens_x1andx2 / marginaldens_x1only
+BF  # The model with x2 is not preferred (even though x2 has a true effect) in this universe where variable x3 is not included. Keep in mind, x2 has a small effect. 
 ```
 
 
